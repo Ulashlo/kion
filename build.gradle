@@ -21,6 +21,8 @@ repositories {
 dependencies {
 	implementation 'org.springframework.boot:spring-boot-starter-web'
 	implementation 'org.springframework.kafka:spring-kafka'
+	implementation group: 'io.swagger.core.v3', name: 'swagger-annotations', version: '2.1.12'
+	implementation group: 'com.aerospike', name: 'spring-data-aerospike', version: '3.3.0'
 	compileOnly 'org.projectlombok:lombok'
 	annotationProcessor 'org.projectlombok:lombok'
 	testImplementation 'org.springframework.boot:spring-boot-starter-test'
