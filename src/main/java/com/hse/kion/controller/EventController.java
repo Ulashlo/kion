@@ -1,14 +1,28 @@
 package com.hse.kion.controller;
 
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import com.hse.kion.controller.dto.LastPointViewDTO;
+import com.hse.kion.controller.dto.LastPointViewInfoForCreateDTO;
+import com.hse.kion.service.LastPointViewService;
+import lombok.RequiredArgsConstructor;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.*;
 
-@RestController()
-@RequestMapping("/event")
+import java.util.List;
+
+@RestController
+@RequiredArgsConstructor
+@RequestMapping("/lastPointView")
 public class EventController {
+    @Autowired
+    private final LastPointViewService lastPointViewService;
+
+    @GetMapping
+    public List<LastPointViewDTO> getLastPointViews() {
+        return lastPointViewService.getLastPointViews();
+    }
+
     @PostMapping
-    public String pushVideoEvent() {
-        return "test";
+    public void addLastPointView(@RequestBody LastPointViewInfoForCreateDTO info) {
+        lastPointViewService.addLastPointView(info);
     }
 }

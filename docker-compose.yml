@@ -1,0 +1,16 @@
+services:
+  aerospike:
+    image: aerospike/aerospike-server
+    container_name: aerospike
+    ports:
+      - "3000:3000"
+      - "3001:3001"
+      - "3002:3002"
+      - "3003:3003"
+  kion:
+    build: .
+    ports:
+      - "8080:8080"
+    depends_on:
+      aerospike:
+        condition: service_started
