@@ -5,7 +5,6 @@ import com.hse.kion.controller.dto.LastPointViewInfoForCreateDTO;
 import com.hse.kion.model.LastPointView;
 import com.hse.kion.repository.LastPointViewRepository;
 import lombok.RequiredArgsConstructor;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.LinkedList;
@@ -14,7 +13,6 @@ import java.util.List;
 @Service
 @RequiredArgsConstructor
 class LastPointViewServiceImpl implements LastPointViewService {
-    @Autowired
     private final LastPointViewRepository lastPointViewRepository;
 
     @Override

@@ -2,7 +2,7 @@ package com.hse.kion.configuration;
 
 import com.aerospike.client.Host;
 import com.hse.kion.repository.LastPointViewRepository;
-import org.springframework.beans.factory.annotation.Autowired;
+import lombok.RequiredArgsConstructor;
 import org.springframework.boot.context.properties.EnableConfigurationProperties;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.data.aerospike.config.AbstractAerospikeDataConfiguration;
@@ -12,11 +12,11 @@ import java.util.Collection;
 import java.util.Collections;
 
 @Configuration
+@RequiredArgsConstructor
 @EnableConfigurationProperties(AerospikeConfigurationProperties.class)
 @EnableAerospikeRepositories(basePackageClasses = LastPointViewRepository.class)
 public class AerospikeConfiguration extends AbstractAerospikeDataConfiguration {
-    @Autowired
-    private AerospikeConfigurationProperties aerospikeConfigurationProperties;
+    private final AerospikeConfigurationProperties aerospikeConfigurationProperties;
 
     @Override
     protected Collection<Host> getHosts() {

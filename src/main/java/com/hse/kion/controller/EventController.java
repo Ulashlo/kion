@@ -13,7 +13,6 @@ import java.util.List;
 @RequiredArgsConstructor
 @RequestMapping("/lastPointView")
 public class EventController {
-    @Autowired
     private final LastPointViewService lastPointViewService;
 
     @GetMapping
