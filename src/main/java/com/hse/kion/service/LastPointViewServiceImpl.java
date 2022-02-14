@@ -5,6 +5,7 @@ import com.hse.kion.controller.dto.LastPointViewInfoForCreateDTO;
 import com.hse.kion.model.LastPointView;
 import com.hse.kion.repository.LastPointViewRepository;
 import lombok.RequiredArgsConstructor;
+import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
 
 import java.util.LinkedList;
@@ -19,7 +20,7 @@ class LastPointViewServiceImpl implements LastPointViewService {
     public List<LastPointViewDTO> getLastPointViews() {
         final var list = new LinkedList<LastPointViewDTO>();
         lastPointViewRepository
-            .findAll()
+            .findAll(Sort.unsorted())
             .forEach(
                 view -> {
                     list.add(

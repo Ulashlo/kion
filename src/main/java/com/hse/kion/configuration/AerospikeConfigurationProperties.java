@@ -11,4 +11,5 @@ public class AerospikeConfigurationProperties {
     private String host;
     private int port;
     private String namespace;
+    private boolean scansEnabled;
 }

@@ -10,6 +10,7 @@ import org.springframework.data.aerospike.repository.config.EnableAerospikeRepos
 
 import java.util.Collection;
 import java.util.Collections;
+import java.util.HashMap;
 
 @Configuration
 @RequiredArgsConstructor
@@ -20,6 +21,8 @@ public class AerospikeConfiguration extends AbstractAerospikeDataConfiguration {
 
     @Override
     protected Collection<Host> getHosts() {
+        System.out.println(aerospikeConfigurationProperties.getHost());
+        System.out.println(aerospikeConfigurationProperties.getPort());
         return Collections.singleton(
                 new Host(
                         aerospikeConfigurationProperties.getHost(),
