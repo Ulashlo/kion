@@ -1,14 +1,13 @@
+version: '2'
+
 services:
   aerospike:
-    image: aerospike/aerospike-server
+    hostname: aerospike
     container_name: aerospike
-    ports:
-      - "3000:3000"
-      - "3001:3001"
-      - "3002:3002"
-      - "3003:3003"
+    image: aerospike/aerospike-server
   kion:
     build: .
+    container_name: kion
     ports:
       - "8080:8080"
     links:

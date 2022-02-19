@@ -1,38 +1,28 @@
 package com.hse.kion.configuration;
 
-import com.aerospike.client.Host;
-import com.hse.kion.repository.LastPointViewRepository;
+import com.aerospike.client.AerospikeClient;
+import com.aerospike.client.policy.ClientPolicy;
+import com.aerospike.client.policy.Policy;
 import lombok.RequiredArgsConstructor;
-import org.springframework.boot.context.properties.EnableConfigurationProperties;
+import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
-import org.springframework.data.aerospike.config.AbstractAerospikeDataConfiguration;
-import org.springframework.data.aerospike.repository.config.EnableAerospikeRepositories;
-
-import java.util.Collection;
-import java.util.Collections;
-import java.util.HashMap;
 
 @Configuration
 @RequiredArgsConstructor
-@EnableConfigurationProperties(AerospikeConfigurationProperties.class)
-@EnableAerospikeRepositories(basePackageClasses = LastPointViewRepository.class)
-public class AerospikeConfiguration extends AbstractAerospikeDataConfiguration {
+public class AerospikeConfiguration {
     private final AerospikeConfigurationProperties aerospikeConfigurationProperties;
 
-    @Override
-    protected Collection<Host> getHosts() {
-        System.out.println(aerospikeConfigurationProperties.getHost());
-        System.out.println(aerospikeConfigurationProperties.getPort());
-        return Collections.singleton(
-                new Host(
-                        aerospikeConfigurationProperties.getHost(),
-                        aerospikeConfigurationProperties.getPort()
-                )
+    @Bean
+    public AerospikeClient getAerospikeClient() {
+        return new AerospikeClient(
+            new ClientPolicy(),
+            aerospikeConfigurationProperties.getHost(),
+            aerospikeConfigurationProperties.getPort()
         );
     }
 
-    @Override
-    protected String nameSpace() {
-        return aerospikeConfigurationProperties.getNamespace();
+    @Bean
+    public Policy getDefaultPolicy() {
+        return new Policy();
     }
 }
