@@ -7,6 +7,7 @@ services:
     image: aerospike/aerospike-server
   kion:
     build: .
+    container_name: kion
     ports:
       - "8080:8080"
     links:
