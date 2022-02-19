@@ -7,10 +7,8 @@ import lombok.RequiredArgsConstructor;
 
 @Getter
 @RequiredArgsConstructor
-@Schema(name = "Last point view")
-public class LastPointViewDTO {
-    @NonNull
-    private final Long id;
+@Schema(name = "Last point view info for update")
+public class LastPointViewInfoForUpdateDTO {
     @NonNull
     private final Long videoId;
     @NonNull
