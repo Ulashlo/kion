@@ -10,9 +10,9 @@ import lombok.RequiredArgsConstructor;
 @Schema(name = "Last point view info for update")
 public class LastPointViewInfoForUpdateDTO {
     @NonNull
-    private final Long videoId;
-    @NonNull
     private final Long userId;
+    @NonNull
+    private final Long videoId;
     @NonNull
     private final Long videoTime;
 }

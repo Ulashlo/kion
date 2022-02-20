@@ -11,9 +11,9 @@ import lombok.RequiredArgsConstructor;
 @Schema(name = "Event info for create")
 public class EventInfoForCreateDTO {
     @NonNull
-    private final Long videoId;
-    @NonNull
     private final Long userId;
+    @NonNull
+    private final Long videoId;
     @NonNull
     private final EventType type;
     @NonNull

@@ -15,9 +15,9 @@ public class EventDTO {
     @NonNull
     private final Long id;
     @NonNull
-    private final Long videoId;
-    @NonNull
     private final Long userId;
+    @NonNull
+    private final Long videoId;
     @NonNull
     private final EventType type;
     @NonNull
