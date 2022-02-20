@@ -1,6 +1,6 @@
-package com.hse.kion.controller.dto;
+package com.hse.kion.controller.dto.event;
 
-import com.hse.kion.model.EventType;
+import com.hse.kion.model.event.EventType;
 import io.swagger.v3.oas.annotations.media.Schema;
 import lombok.Getter;
 import lombok.NonNull;

@@ -1,20 +1,18 @@
-package com.hse.kion.controller.dto;
+package com.hse.kion.controller.dto.lastPointView;
 
 import io.swagger.v3.oas.annotations.media.Schema;
 import lombok.Getter;
 import lombok.NonNull;
 import lombok.RequiredArgsConstructor;
 
+import java.util.List;
+
 @Getter
 @RequiredArgsConstructor
-@Schema(name = "Last point view")
-public class LastPointViewDTO {
-    @NonNull
-    private final Long id;
-    @NonNull
-    private final Long videoId;
+@Schema(name = "Info for get last points views")
+public class LastPointViewInfoForGetDTO {
     @NonNull
     private final Long userId;
     @NonNull
-    private final Long videoTime;
+    private final List<Long> videoIds;
 }

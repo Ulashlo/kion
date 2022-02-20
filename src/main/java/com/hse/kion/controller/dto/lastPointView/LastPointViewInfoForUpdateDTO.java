@@ -1,4 +1,4 @@
-package com.hse.kion.controller.dto;
+package com.hse.kion.controller.dto.lastPointView;
 
 import io.swagger.v3.oas.annotations.media.Schema;
 import lombok.Getter;

@@ -1,27 +1,18 @@
-package com.hse.kion.controller.dto;
+package com.hse.kion.controller.dto.lastPointView;
 
-import com.hse.kion.model.EventType;
 import io.swagger.v3.oas.annotations.media.Schema;
 import lombok.Getter;
 import lombok.NonNull;
 import lombok.RequiredArgsConstructor;
 
-import java.time.OffsetDateTime;
-
 @Getter
 @RequiredArgsConstructor
-@Schema(name = "Event")
-public class EventDTO {
-    @NonNull
-    private final Long id;
+@Schema(name = "Last point view")
+public class LastPointViewDTO {
     @NonNull
     private final Long videoId;
     @NonNull
     private final Long userId;
-    @NonNull
-    private final EventType type;
-    @NonNull
-    private final OffsetDateTime creationDate;
     @NonNull
     private final Long videoTime;
 }

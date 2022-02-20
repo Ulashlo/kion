@@ -1,4 +1,4 @@
-package com.hse.kion.model;
+package com.hse.kion.model.event;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;

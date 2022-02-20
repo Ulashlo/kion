@@ -1,13 +1,8 @@
 package com.hse.kion.configuration;
 
-import com.aerospike.client.AerospikeClient;
 import com.aerospike.client.Host;
-import com.aerospike.client.policy.ClientPolicy;
-import com.aerospike.client.policy.Policy;
+import com.hse.kion.model.lastPointView.LastPointViewKey;
 import lombok.RequiredArgsConstructor;
-import org.springframework.beans.factory.annotation.Qualifier;
-import org.springframework.boot.context.properties.EnableConfigurationProperties;
-import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.data.aerospike.config.AbstractAerospikeDataConfiguration;
 import org.springframework.data.aerospike.repository.config.EnableAerospikeRepositories;
@@ -36,18 +31,11 @@ public class AerospikeConfiguration extends AbstractAerospikeDataConfiguration {
         return properties.getNamespace();
     }
 
-
-    @Bean
-    public AerospikeClient getAerospikeClient() {
-        return new AerospikeClient(
-            new ClientPolicy(),
-            properties.getHost(),
-            properties.getPort()
+    @Override
+    protected List<?> customConverters() {
+        return List.of(
+            LastPointViewKey.LastPointViewKeyToStringConverter.INSTANCE,
+            LastPointViewKey.StringToLastPointViewKeyConverter.INSTANCE
         );
-    }
-
-    @Bean
-    public Policy getDefaultPolicy() {
-        return new Policy();
     }
 }

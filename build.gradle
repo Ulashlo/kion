@@ -23,7 +23,6 @@ dependencies {
 	implementation 'org.springframework.boot:spring-boot-starter-web'
 	implementation 'org.springframework.kafka:spring-kafka'
 	implementation group: 'io.swagger.core.v3', name: 'swagger-annotations', version: '2.1.12'
-	implementation group: 'com.aerospike', name: 'aerospike-client', version: '5.1.10'
 	implementation group: 'com.aerospike', name: 'spring-data-aerospike', version: '3.3.1'
 	implementation group: 'org.springframework.boot', name: 'spring-boot-starter-validation', version: '2.6.3'
 	annotationProcessor "org.springframework.boot:spring-boot-configuration-processor"

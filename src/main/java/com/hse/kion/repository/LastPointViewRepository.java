@@ -1,7 +1,8 @@
 package com.hse.kion.repository;
 
-import com.hse.kion.repository.query.LastPointViewInfoForUpdate;
+import com.hse.kion.model.lastPointView.LastPointView;
+import com.hse.kion.model.lastPointView.LastPointViewKey;
+import org.springframework.data.repository.CrudRepository;
 
-public interface LastPointViewRepository {
-    void addLastPointView(LastPointViewInfoForUpdate infoForUpdate);
+public interface LastPointViewRepository extends CrudRepository<LastPointView, LastPointViewKey> {
 }
