@@ -1,5 +1,6 @@
 package com.hse.kion.service.kafka;
 
+import lombok.extern.slf4j.Slf4j;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.boot.autoconfigure.condition.ConditionalOnProperty;
@@ -11,10 +12,8 @@ import org.springframework.messaging.handler.annotation.Payload;
 import org.springframework.stereotype.Service;
 
 @Service
-@ConditionalOnProperty(value = "example.kafka.consumer-enabled", havingValue = "true")
+@Slf4j
 public class Consumer {
-
-    private final Logger logger = LoggerFactory.getLogger(Producer.class);
 
     @KafkaListener(topics = {"INPUT_DATA"})
     public void consume(final @Payload String message,
@@ -25,7 +24,7 @@ public class Consumer {
                         final @Header(KafkaHeaders.RECEIVED_TIMESTAMP) long ts,
                         final Acknowledgment acknowledgment
     ) {
-        logger.info(String.format("#### -> Consumed message -> TIMESTAMP: %d\n%s\noffset: %d\nkey: %s\npartition: %d\ntopic: %s", ts, message, offset, key, partition, topic));
+        log.info(String.format("#### -> Consumed message -> TIMESTAMP: %d\n%s\noffset: %d\nkey: %s\npartition: %d\ntopic: %s", ts, message, offset, key, partition, topic));
         acknowledgment.acknowledge();
     }
 }

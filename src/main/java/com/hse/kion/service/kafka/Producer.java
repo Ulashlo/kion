@@ -12,6 +12,6 @@ public class Producer {
     private final KafkaTemplate<String, String> kafkaTemplate;
 
     public ListenableFuture<SendResult<String, String>> sendMessage(String topic, String key, String message) {
-        return this.kafkaTemplate.send(topic, key, message);
+        return kafkaTemplate.send(topic, key, message);
     }
 }
