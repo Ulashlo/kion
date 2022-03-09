@@ -1,6 +1,13 @@
 version: '2'
 
 services:
+  clickhous:
+    container_name: clickhous
+    image: yandex/clickhouse-server
+    ports:
+      - "8123:8123"
+    volumes:
+      - ./db:/var/lib/clickhouse
   aerospike:
     container_name: aerospike
     image: aerospike/aerospike-server
