@@ -1,13 +1,29 @@
 version: '2'
 
 services:
-  clickhous:
-    container_name: clickhous
-    image: yandex/clickhouse-server
+#  clickhous:
+#    container_name: clickhous
+#    image: yandex/clickhouse-server
+#    ports:
+#      - "8123:8123"
+#    volumes:
+#      - ./db:/var/lib/clickhouse
+  grafana:
+    build: './config/grafana'
     ports:
-      - "8123:8123"
+      - 3000:3000
     volumes:
-      - ./db:/var/lib/clickhouse
+      - ./grafana:/var/lib/grafana
+    environment:
+      - GF_SECURITY_ADMIN_USER=admin
+      - GF_SECURITY_ADMIN_PASSWORD=admin
+  prometheus:
+    image: prom/prometheus
+    ports:
+      - 9090:9090
+    volumes:
+      - ./config/prometheus/prometheus.yml:/etc/prometheus/prometheus.yml
+      - ./prometheus:/prometheus
   aerospike:
     container_name: aerospike
     image: aerospike/aerospike-server
