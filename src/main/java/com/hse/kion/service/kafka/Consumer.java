@@ -1,9 +1,6 @@
 package com.hse.kion.service.kafka;
 
 import lombok.extern.slf4j.Slf4j;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
-import org.springframework.boot.autoconfigure.condition.ConditionalOnProperty;
 import org.springframework.kafka.annotation.KafkaListener;
 import org.springframework.kafka.support.Acknowledgment;
 import org.springframework.kafka.support.KafkaHeaders;
@@ -18,13 +15,12 @@ public class Consumer {
     @KafkaListener(topics = {"INPUT_DATA"})
     public void consume(final @Payload String message,
                         final @Header(KafkaHeaders.OFFSET) Integer offset,
-                        final @Header(KafkaHeaders.RECEIVED_MESSAGE_KEY) String key,
                         final @Header(KafkaHeaders.RECEIVED_PARTITION_ID) int partition,
                         final @Header(KafkaHeaders.RECEIVED_TOPIC) String topic,
                         final @Header(KafkaHeaders.RECEIVED_TIMESTAMP) long ts,
                         final Acknowledgment acknowledgment
     ) {
-        log.info(String.format("#### -> Consumed message -> TIMESTAMP: %d\n%s\noffset: %d\nkey: %s\npartition: %d\ntopic: %s", ts, message, offset, key, partition, topic));
+        log.info(String.format("#### -> Consumed message -> TIMESTAMP: %d\n%s\noffset: %d\npartition: %d\ntopic: %s", ts, message, offset, partition, topic));
         acknowledgment.acknowledge();
     }
 }

@@ -1,29 +1,38 @@
 version: '2'
 
 services:
-#  clickhous:
-#    container_name: clickhous
-#    image: yandex/clickhouse-server
-#    ports:
-#      - "8123:8123"
-#    volumes:
-#      - ./db:/var/lib/clickhouse
+  clickhous:
+    image: yandex/clickhouse-server
+    volumes:
+      - ./config/clickhouse/config.xml:/etc/clickhouse-server/config.xml
+      - ./config/clickhouse/schema.sql:/etc/clickhouse-server/schema.sql
+      - ./config/clickhouse/zookeeper-servers.xml:/etc/clickhouse-server/conf.d/zookeeper-servers.xml
+      - ./shared/ch-data/clickhouse:/var/lib/clickhouse
+    depends_on:
+      kafka:
+        condition: service_started
   grafana:
-    build: './config/grafana'
+    build: /grafana
+    container_name: grafana
     ports:
-      - 3000:3000
+      - "3000:3000"
     volumes:
       - ./grafana:/var/lib/grafana
     environment:
       - GF_SECURITY_ADMIN_USER=admin
       - GF_SECURITY_ADMIN_PASSWORD=admin
+    depends_on:
+      prometheus:
+        condition: service_started
   prometheus:
     image: prom/prometheus
-    ports:
-      - 9090:9090
+    container_name: prometheus
     volumes:
       - ./config/prometheus/prometheus.yml:/etc/prometheus/prometheus.yml
       - ./prometheus:/prometheus
+    depends_on:
+      kion:
+        condition: service_started
   aerospike:
     container_name: aerospike
     image: aerospike/aerospike-server
@@ -47,14 +56,12 @@ services:
       zookeeper:
         condition: service_started
     volumes:
-      - ./:/etc/kafka
+      - ./config/kafka:/etc/kafka
   kion:
     build: .
     container_name: kion
     ports:
       - "8080:8080"
-    links:
-      - aerospike
     depends_on:
       kafka:
         condition: service_started

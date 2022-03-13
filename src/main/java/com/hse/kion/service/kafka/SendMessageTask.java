@@ -15,15 +15,15 @@ import java.util.concurrent.ExecutionException;
 public class SendMessageTask {
     private final Producer producer;
 
-    public void send() throws InterruptedException, ExecutionException {
-
-        ListenableFuture<SendResult<String, String>> listenableFuture = this.producer.sendMessage("INPUT_DATA", "IN_KEY", LocalDate.now().toString());
-
-        SendResult<String, String> result = listenableFuture.get();
-        log.info(String.format("Produced:\ntopic: %s\noffset: %d\npartition: %d\nvalue size: %d",
-            result.getRecordMetadata().topic(),
-            result.getRecordMetadata().offset(),
-            result.getRecordMetadata().partition(),
-            result.getRecordMetadata().serializedValueSize()));
-    }
+//    public void send() throws InterruptedException, ExecutionException {
+//
+//        ListenableFuture<SendResult<String, String>> listenableFuture = this.producer.sendMessage("INPUT_DATA", , LocalDate.now().toString());
+//
+//        SendResult<String, String> result = listenableFuture.get();
+//        log.info(String.format("Produced:\ntopic: %s\noffset: %d\npartition: %d\nvalue size: %d",
+//            result.getRecordMetadata().topic(),
+//            result.getRecordMetadata().offset(),
+//            result.getRecordMetadata().partition(),
+//            result.getRecordMetadata().serializedValueSize()));
+//    }
 }

@@ -8,7 +8,6 @@ import java.time.OffsetDateTime;
 @Getter
 @AllArgsConstructor
 public class Event {
-    private Long id;
     private Long videoId;
     private Long userId;
     private EventType type;

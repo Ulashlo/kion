@@ -13,9 +13,4 @@ import java.util.concurrent.ExecutionException;
 @RequestMapping("/test")
 public class Test {
     private final SendMessageTask sendMessageTask;
-
-    @GetMapping("")
-    public void test() throws ExecutionException, InterruptedException {
-        sendMessageTask.send();
-    }
 }
