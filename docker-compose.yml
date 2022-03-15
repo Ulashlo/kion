@@ -3,9 +3,10 @@ version: '2'
 services:
   clickhous:
     image: yandex/clickhouse-server
+    container_name: clickhous
     volumes:
       - ./config/clickhouse/config.xml:/etc/clickhouse-server/config.xml
-      - ./config/clickhouse/schema.sql:/etc/clickhouse-server/docker-entrypoint-initdb.d/schema.sql
+      - ./config/clickhouse/schema.sql:/docker-entrypoint-initdb.d/schema.sql
       - ./config/clickhouse/zookeeper-servers.xml:/etc/clickhouse-server/conf.d/zookeeper-servers.xml
       - ./shared/ch-data/clickhouse:/var/lib/clickhouse
     depends_on:

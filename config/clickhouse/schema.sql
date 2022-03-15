@@ -7,7 +7,7 @@ CREATE TABLE IF NOT EXISTS event_queue
     `videoTime`    UInt64
 ) ENGINE = Kafka SETTINGS
     kafka_broker_list = 'kafka:9092',
-    kafka_topic_list = 'INPUT_DATA',
+    kafka_topic_list = 'EVENT_DATA',
     kafka_group_name = 'example',
     kafka_format = 'JSONEachRow',
     kafka_num_consumers = 1;
