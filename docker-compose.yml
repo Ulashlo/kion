@@ -5,14 +5,14 @@ services:
     image: yandex/clickhouse-server
     volumes:
       - ./config/clickhouse/config.xml:/etc/clickhouse-server/config.xml
-      - ./config/clickhouse/schema.sql:/etc/clickhouse-server/schema.sql
+      - ./config/clickhouse/schema.sql:/etc/clickhouse-server/docker-entrypoint-initdb.d/schema.sql
       - ./config/clickhouse/zookeeper-servers.xml:/etc/clickhouse-server/conf.d/zookeeper-servers.xml
       - ./shared/ch-data/clickhouse:/var/lib/clickhouse
     depends_on:
       kafka:
         condition: service_started
   grafana:
-    build: /grafana
+    build: ./config/grafana
     container_name: grafana
     ports:
       - "3000:3000"

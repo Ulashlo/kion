@@ -4,6 +4,7 @@ import com.hse.kion.controller.dto.event.EventInfoForCreateDTO;
 import com.hse.kion.model.event.Event;
 
 import java.time.OffsetDateTime;
+import java.time.format.DateTimeFormatter;
 
 public class EventConverter {
     public static Event toEvent(EventInfoForCreateDTO info) {
@@ -11,7 +12,7 @@ public class EventConverter {
             info.getVideoId(),
             info.getUserId(),
             info.getType(),
-            OffsetDateTime.now(),
+            OffsetDateTime.now().format(DateTimeFormatter.ofPattern("yyyy-MM-dd hh:mm:ss")),
             info.getVideoTime()
         );
     }

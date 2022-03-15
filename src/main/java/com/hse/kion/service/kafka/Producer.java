@@ -7,9 +7,7 @@ import com.hse.kion.model.event.Event;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.kafka.core.KafkaTemplate;
-import org.springframework.kafka.support.SendResult;
 import org.springframework.stereotype.Service;
-import org.springframework.util.concurrent.ListenableFuture;
 
 @Service
 @RequiredArgsConstructor
@@ -17,11 +15,11 @@ import org.springframework.util.concurrent.ListenableFuture;
 public class Producer {
     private final KafkaTemplate<String, String> kafkaTemplate;
 
-    public ListenableFuture<SendResult<String, String>> sendMessage(String topic, Event message) throws JsonProcessingException {
+    public void sendMessage(String topic, Event message) throws JsonProcessingException {
         final var om = new ObjectMapper();
         om.registerModule(new JavaTimeModule());
         final var data = om.writeValueAsString(message);
         log.info("Message: " + data);
-        return kafkaTemplate.send(topic, data);
+        kafkaTemplate.send(topic, data);
     }
 }

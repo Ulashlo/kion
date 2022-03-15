@@ -10,8 +10,7 @@ CREATE TABLE IF NOT EXISTS event_queue
     kafka_topic_list = 'INPUT_DATA',
     kafka_group_name = 'example',
     kafka_format = 'JSONEachRow',
-    kafka_num_consumers = 1,
-    kafka_commit_on_select = 1;
+    kafka_num_consumers = 1;
 
 CREATE TABLE IF NOT EXISTS event
 (
@@ -20,7 +19,8 @@ CREATE TABLE IF NOT EXISTS event
     `type`         String,
     `creationDate` DateTime('Europe/Moscow'),
     `videoTime`    UInt64
-) Engine = MergeTree();
+) Engine = MergeTree()
+           order by userId;
 
 CREATE MATERIALIZED VIEW event_mv TO event AS
 SELECT videoId, userId, type, creationDate, videoTime

@@ -11,6 +11,6 @@ public class Event {
     private Long videoId;
     private Long userId;
     private EventType type;
-    private OffsetDateTime creationDate;
+    private String creationDate;
     private Long videoTime;
 }

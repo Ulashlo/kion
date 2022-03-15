@@ -105,5 +105,15 @@
         </default>
     </graphite_rollup_example>
 
+    <kafka>
+        <security_protocol>sasl_plaintext</security_protocol>
+        <sasl_mechanism>PLAIN</sasl_mechanism>
+        <sasl_username>admin</sasl_username>
+        <sasl_password>admin-secret</sasl_password>
+        <debug>all</debug>
+        <auto_offset_reset>latest</auto_offset_reset>
+        <compression_type>snappy</compression_type>
+    </kafka>
+
     <format_schema_path>/var/lib/clickhouse/format_schemas/</format_schema_path>
 </yandex>
