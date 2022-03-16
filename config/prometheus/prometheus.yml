@@ -1,6 +1,11 @@
 scrape_configs:
-  - job_name: 'sample_monitoring'
+  - job_name: 'kion_monitoring'
     scrape_interval: 5s
     metrics_path: '/actuator/prometheus'
     static_configs:
       - targets: ['kion:8080']
+  - job_name: 'kafka_monitoring'
+    scrape_interval: 5s
+    metrics_path: '/metrics'
+    static_configs:
+      - targets: ['kafka_exporter:9308']
