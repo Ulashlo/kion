@@ -1,40 +1,4 @@
 {
-  "__inputs": [
-    {
-      "name": "DS_PROMETHEUS",
-      "label": "Prometheus",
-      "description": "",
-      "type": "datasource",
-      "pluginId": "prometheus",
-      "pluginName": "Prometheus"
-    }
-  ],
-  "__requires": [
-    {
-      "type": "grafana",
-      "id": "grafana",
-      "name": "Grafana",
-      "version": "7.5.2"
-    },
-    {
-      "type": "panel",
-      "id": "graph",
-      "name": "Graph",
-      "version": ""
-    },
-    {
-      "type": "datasource",
-      "id": "prometheus",
-      "name": "Prometheus",
-      "version": "1.0.0"
-    },
-    {
-      "type": "panel",
-      "id": "table",
-      "name": "Table",
-      "version": ""
-    }
-  ],
   "annotations": {
     "list": [
       {
@@ -47,7 +11,7 @@
         "type": "dashboard"
       },
       {
-        "datasource": "${DS_PROMETHEUS}",
+        "datasource": "Prometheus",
         "enable": true,
         "expr": "resets(ClickHouseAsyncMetrics_Uptime{instance=~\"$instance\"}[$__rate_interval])",
         "hide": false,
@@ -83,7 +47,7 @@
   ],
   "panels": [
     {
-      "datasource": "${DS_PROMETHEUS}",
+      "datasource": "Prometheus",
       "description": "",
       "fieldConfig": {
         "defaults": {
@@ -296,7 +260,7 @@
       "bars": false,
       "dashLength": 10,
       "dashes": false,
-      "datasource": "${DS_PROMETHEUS}",
+      "datasource": "Prometheus",
       "description": "Total amount of memory (bytes) allocated by the server.",
       "fieldConfig": {
         "defaults": {},
@@ -397,7 +361,7 @@
       "bars": false,
       "dashLength": 10,
       "dashes": false,
-      "datasource": "${DS_PROMETHEUS}",
+      "datasource": "Prometheus",
       "description": "Number of connections to TCP server (clients with native interface), also included server-server distributed query connections. \nNumber of connections to HTTP server",
       "fieldConfig": {
         "defaults": {},
@@ -506,7 +470,7 @@
       "bars": false,
       "dashLength": 10,
       "dashes": false,
-      "datasource": "${DS_PROMETHEUS}",
+      "datasource": "Prometheus",
       "description": "Number of times the number of query processing threads was lowered due to slow reads.",
       "fieldConfig": {
         "defaults": {},
@@ -615,7 +579,7 @@
       "bars": false,
       "dashLength": 10,
       "dashes": false,
-      "datasource": "${DS_PROMETHEUS}",
+      "datasource": "Prometheus",
       "description": "Number of reads from a file that were slow. This indicate system overload. Thresholds are controlled by read_backoff_* settings.",
       "fieldConfig": {
         "defaults": {},
@@ -721,7 +685,7 @@
     },
     {
       "collapsed": true,
-      "datasource": "${DS_PROMETHEUS}",
+      "datasource": "Prometheus",
       "gridPos": {
         "h": 1,
         "w": 24,
@@ -735,7 +699,7 @@
           "bars": false,
           "dashLength": 10,
           "dashes": false,
-          "datasource": "${DS_PROMETHEUS}",
+          "datasource": "Prometheus",
           "description": "Number of queries to be interpreted and potentially executed. Does not include queries that failed to parse or were rejected due to AST size limits, quota limits or limits on the number of simultaneously running queries. May include internal queries initiated by ClickHouse itself. Does not count subqueries.",
           "fieldConfig": {
             "defaults": {},
@@ -844,7 +808,7 @@
           "bars": false,
           "dashLength": 10,
           "dashes": false,
-          "datasource": "${DS_PROMETHEUS}",
+          "datasource": "Prometheus",
           "description": "Same as Queries, but only for SELECT queries.",
           "fieldConfig": {
             "defaults": {},
@@ -953,7 +917,7 @@
           "bars": false,
           "dashLength": 10,
           "dashes": false,
-          "datasource": "${DS_PROMETHEUS}",
+          "datasource": "Prometheus",
           "description": "Same as Queries, but only for INSERT queries.",
           "fieldConfig": {
             "defaults": {},
@@ -1062,7 +1026,7 @@
           "bars": false,
           "dashLength": 10,
           "dashes": false,
-          "datasource": "${DS_PROMETHEUS}",
+          "datasource": "Prometheus",
           "description": "Same as Failed queries, but only for SELECT queries.",
           "fieldConfig": {
             "defaults": {},
@@ -1171,7 +1135,7 @@
           "bars": false,
           "dashLength": 10,
           "dashes": false,
-          "datasource": "${DS_PROMETHEUS}",
+          "datasource": "Prometheus",
           "description": "Number of failed queries.",
           "fieldConfig": {
             "defaults": {},
@@ -1280,7 +1244,7 @@
           "bars": false,
           "dashLength": 10,
           "dashes": false,
-          "datasource": "${DS_PROMETHEUS}",
+          "datasource": "Prometheus",
           "description": "Number of times when memory limit exceeded for query.",
           "fieldConfig": {
             "defaults": {},
@@ -1389,7 +1353,7 @@
           "bars": false,
           "dashLength": 10,
           "dashes": false,
-          "datasource": "${DS_PROMETHEUS}",
+          "datasource": "Prometheus",
           "description": "Number of queries that are stopped and waiting due to 'priority' setting.",
           "fieldConfig": {
             "defaults": {},
@@ -1498,7 +1462,7 @@
           "bars": false,
           "dashLength": 10,
           "dashes": false,
-          "datasource": "${DS_PROMETHEUS}",
+          "datasource": "Prometheus",
           "description": "Same as Failed queries, but only for INSERT queries.",
           "fieldConfig": {
             "defaults": {},
@@ -1607,7 +1571,7 @@
           "bars": false,
           "dashLength": 10,
           "dashes": false,
-          "datasource": "${DS_PROMETHEUS}",
+          "datasource": "Prometheus",
           "description": "Avg queries latencies",
           "fieldConfig": {
             "defaults": {},
@@ -1708,7 +1672,7 @@
           "bars": false,
           "dashLength": 10,
           "dashes": false,
-          "datasource": "${DS_PROMETHEUS}",
+          "datasource": "Prometheus",
           "description": "Avg SELECT queries latencies",
           "fieldConfig": {
             "defaults": {},
@@ -1809,7 +1773,7 @@
           "bars": false,
           "dashLength": 10,
           "dashes": false,
-          "datasource": "${DS_PROMETHEUS}",
+          "datasource": "Prometheus",
           "description": "Avg INSERT queries latencies",
           "fieldConfig": {
             "defaults": {},
@@ -1911,7 +1875,7 @@
     },
     {
       "collapsed": true,
-      "datasource": "${DS_PROMETHEUS}",
+      "datasource": "Prometheus",
       "gridPos": {
         "h": 1,
         "w": 24,
@@ -1925,7 +1889,7 @@
           "bars": false,
           "dashLength": 10,
           "dashes": false,
-          "datasource": "${DS_PROMETHEUS}",
+          "datasource": "Prometheus",
           "description": "Number of rows INSERTed to all tables.",
           "fieldConfig": {
             "defaults": {},
@@ -2034,7 +1998,7 @@
           "bars": false,
           "dashLength": 10,
           "dashes": false,
-          "datasource": "${DS_PROMETHEUS}",
+          "datasource": "Prometheus",
           "description": "Number of bytes (uncompressed; for columns as they stored in memory) INSERTed to all tables.",
           "fieldConfig": {
             "defaults": {},
@@ -2143,7 +2107,7 @@
           "bars": false,
           "dashLength": 10,
           "dashes": false,
-          "datasource": "${DS_PROMETHEUS}",
+          "datasource": "Prometheus",
           "description": "Number of times the INSERT of a block to a MergeTree table was throttled due to high number of active data parts for partition.",
           "fieldConfig": {
             "defaults": {},
@@ -2252,7 +2216,7 @@
           "bars": false,
           "dashLength": 10,
           "dashes": false,
-          "datasource": "${DS_PROMETHEUS}",
+          "datasource": "Prometheus",
           "description": "Number of times the INSERT of a block to a MergeTree table was rejected with 'Too many parts' exception due to high number of active data parts for partition.",
           "fieldConfig": {
             "defaults": {},
@@ -2361,7 +2325,7 @@
           "bars": false,
           "dashLength": 10,
           "dashes": false,
-          "datasource": "${DS_PROMETHEUS}",
+          "datasource": "Prometheus",
           "description": "Total number of milliseconds spent while the INSERT of a block to a MergeTree table was throttled due to high number of active data parts for partition.",
           "fieldConfig": {
             "defaults": {},
@@ -2463,7 +2427,7 @@
     },
     {
       "collapsed": true,
-      "datasource": "${DS_PROMETHEUS}",
+      "datasource": "Prometheus",
       "gridPos": {
         "h": 1,
         "w": 24,
@@ -2477,7 +2441,7 @@
           "bars": false,
           "dashLength": 10,
           "dashes": false,
-          "datasource": "${DS_PROMETHEUS}",
+          "datasource": "Prometheus",
           "description": "Number of data parts selected to read from a MergeTree table.",
           "fieldConfig": {
             "defaults": {},
@@ -2586,7 +2550,7 @@
           "bars": false,
           "dashLength": 10,
           "dashes": false,
-          "datasource": "${DS_PROMETHEUS}",
+          "datasource": "Prometheus",
           "description": "Number of (non-adjacent) ranges in all data parts selected to read from a MergeTree table.",
           "fieldConfig": {
             "defaults": {},
@@ -2695,7 +2659,7 @@
           "bars": false,
           "dashLength": 10,
           "dashes": false,
-          "datasource": "${DS_PROMETHEUS}",
+          "datasource": "Prometheus",
           "description": "Number of marks (index granules) selected to read from a MergeTree table.",
           "fieldConfig": {
             "defaults": {},
@@ -2804,7 +2768,7 @@
           "bars": false,
           "dashLength": 10,
           "dashes": false,
-          "datasource": "${DS_PROMETHEUS}",
+          "datasource": "Prometheus",
           "description": "Number of rows SELECTed from all tables.",
           "fieldConfig": {
             "defaults": {},
@@ -2913,7 +2877,7 @@
           "bars": false,
           "dashLength": 10,
           "dashes": false,
-          "datasource": "${DS_PROMETHEUS}",
+          "datasource": "Prometheus",
           "description": "Number of bytes (uncompressed; for columns as they stored in memory) SELECTed from all tables.",
           "fieldConfig": {
             "defaults": {},
@@ -3023,7 +2987,7 @@
     },
     {
       "collapsed": true,
-      "datasource": "${DS_PROMETHEUS}",
+      "datasource": "Prometheus",
       "gridPos": {
         "h": 1,
         "w": 24,
@@ -3037,7 +3001,7 @@
           "bars": false,
           "dashLength": 10,
           "dashes": false,
-          "datasource": "${DS_PROMETHEUS}",
+          "datasource": "Prometheus",
           "description": "Number of times the 'lseek' function was called.",
           "fieldConfig": {
             "defaults": {},
@@ -3146,7 +3110,7 @@
           "bars": false,
           "dashLength": 10,
           "dashes": false,
-          "datasource": "${DS_PROMETHEUS}",
+          "datasource": "Prometheus",
           "description": "Number of files opened",
           "fieldConfig": {
             "defaults": {},
@@ -3255,7 +3219,7 @@
           "bars": false,
           "dashLength": 10,
           "dashes": false,
-          "datasource": "${DS_PROMETHEUS}",
+          "datasource": "Prometheus",
           "description": "Number of reads (read/pread) from a file descriptor. Does not include sockets.",
           "fieldConfig": {
             "defaults": {},
@@ -3364,7 +3328,7 @@
           "bars": false,
           "dashLength": 10,
           "dashes": false,
-          "datasource": "${DS_PROMETHEUS}",
+          "datasource": "Prometheus",
           "description": "Number of writes (write/pwrite) to a file descriptor. Does not include sockets.",
           "fieldConfig": {
             "defaults": {},
@@ -3473,7 +3437,7 @@
           "bars": false,
           "dashLength": 10,
           "dashes": false,
-          "datasource": "${DS_PROMETHEUS}",
+          "datasource": "Prometheus",
           "description": "Number of times the read (read/pread) from a file descriptor have failed.",
           "fieldConfig": {
             "defaults": {},
@@ -3582,7 +3546,7 @@
           "bars": false,
           "dashLength": 10,
           "dashes": false,
-          "datasource": "${DS_PROMETHEUS}",
+          "datasource": "Prometheus",
           "description": "Number of times the read (read/pread) from a file descriptor have failed.",
           "fieldConfig": {
             "defaults": {},
@@ -3691,7 +3655,7 @@
           "bars": false,
           "dashLength": 10,
           "dashes": false,
-          "datasource": "${DS_PROMETHEUS}",
+          "datasource": "Prometheus",
           "description": "Number of bytes read from file descriptors. If the file is compressed, this will show the compressed data size.",
           "fieldConfig": {
             "defaults": {},
@@ -3800,7 +3764,7 @@
           "bars": false,
           "dashLength": 10,
           "dashes": false,
-          "datasource": "${DS_PROMETHEUS}",
+          "datasource": "Prometheus",
           "description": "Number of bytes written to file descriptors. If the file is compressed, this will show compressed data size.",
           "fieldConfig": {
             "defaults": {},
@@ -3909,7 +3873,7 @@
           "bars": false,
           "dashLength": 10,
           "dashes": false,
-          "datasource": "${DS_PROMETHEUS}",
+          "datasource": "Prometheus",
           "description": "Number of bytes (the number of bytes before decompression) read from compressed sources (files, network).",
           "fieldConfig": {
             "defaults": {},
@@ -4018,7 +3982,7 @@
           "bars": false,
           "dashLength": 10,
           "dashes": false,
-          "datasource": "${DS_PROMETHEUS}",
+          "datasource": "Prometheus",
           "description": "Number of uncompressed bytes (the number of bytes after decompression) read from compressed sources (files, network).",
           "fieldConfig": {
             "defaults": {},
@@ -4127,7 +4091,7 @@
           "bars": false,
           "dashLength": 10,
           "dashes": false,
-          "datasource": "${DS_PROMETHEUS}",
+          "datasource": "Prometheus",
           "description": "Number of compressed blocks (the blocks of data that are compressed independent of each other) read from compressed sources (files, network).",
           "fieldConfig": {
             "defaults": {},
@@ -4237,7 +4201,7 @@
     },
     {
       "collapsed": true,
-      "datasource": "${DS_PROMETHEUS}",
+      "datasource": "Prometheus",
       "gridPos": {
         "h": 1,
         "w": 24,
@@ -4251,7 +4215,7 @@
           "bars": false,
           "dashLength": 10,
           "dashes": false,
-          "datasource": "${DS_PROMETHEUS}",
+          "datasource": "Prometheus",
           "description": "Number of Replicated tables that are currently in readonly state due to re-initialization after ZooKeeper session loss or due to startup without ZooKeeper configured.",
           "fieldConfig": {
             "defaults": {},
@@ -4352,7 +4316,7 @@
           "bars": false,
           "dashLength": 10,
           "dashes": false,
-          "datasource": "${DS_PROMETHEUS}",
+          "datasource": "Prometheus",
           "description": "Number of times a data part was failed to download from replica of a ReplicatedMergeTree table.",
           "fieldConfig": {
             "defaults": {},
@@ -4461,7 +4425,7 @@
           "bars": false,
           "dashLength": 10,
           "dashes": false,
-          "datasource": "${DS_PROMETHEUS}",
+          "datasource": "Prometheus",
           "description": "Number of times a data part was downloaded from replica of a ReplicatedMergeTree table.",
           "fieldConfig": {
             "defaults": {},
@@ -4570,7 +4534,7 @@
           "bars": false,
           "dashLength": 10,
           "dashes": false,
-          "datasource": "${DS_PROMETHEUS}",
+          "datasource": "Prometheus",
           "description": "Number of times we prefer to download already merged part from replica of ReplicatedMergeTree table instead of performing a merge ourself (usually we prefer doing a merge ourself to save network traffic). This happens when we have not all source parts to perform a merge or when the data part is old enough.",
           "fieldConfig": {
             "defaults": {},
@@ -4679,7 +4643,7 @@
           "bars": false,
           "dashLength": 10,
           "dashes": false,
-          "datasource": "${DS_PROMETHEUS}",
+          "datasource": "Prometheus",
           "description": "Number of times data parts of ReplicatedMergeTree tables were successfully merged.",
           "fieldConfig": {
             "defaults": {},
@@ -4788,7 +4752,7 @@
           "bars": false,
           "dashLength": 10,
           "dashes": false,
-          "datasource": "${DS_PROMETHEUS}",
+          "datasource": "Prometheus",
           "description": "Number of times a data part that we wanted doesn't exist on any replica (even on replicas that are offline right now). That data parts are definitely lost. This is normal due to asynchronous replication (if quorum inserts were not enabled), when the replica on which the data part was written was failed and when it became online after fail it doesn't contain that data part.",
           "fieldConfig": {
             "defaults": {},
@@ -4898,7 +4862,7 @@
     },
     {
       "collapsed": true,
-      "datasource": "${DS_PROMETHEUS}",
+      "datasource": "Prometheus",
       "gridPos": {
         "h": 1,
         "w": 24,
@@ -4912,7 +4876,7 @@
           "bars": false,
           "dashLength": 10,
           "dashes": false,
-          "datasource": "${DS_PROMETHEUS}",
+          "datasource": "Prometheus",
           "description": "Number of launched background merges.",
           "fieldConfig": {
             "defaults": {},
@@ -5021,7 +4985,7 @@
           "bars": false,
           "dashLength": 10,
           "dashes": false,
-          "datasource": "${DS_PROMETHEUS}",
+          "datasource": "Prometheus",
           "description": "Rows read for background merges. This is the number of rows before merge.",
           "fieldConfig": {
             "defaults": {},
@@ -5130,7 +5094,7 @@
           "bars": false,
           "dashLength": 10,
           "dashes": false,
-          "datasource": "${DS_PROMETHEUS}",
+          "datasource": "Prometheus",
           "description": "Uncompressed bytes (for columns as they stored in memory) that was read for background merges. This is the number before merge.",
           "fieldConfig": {
             "defaults": {},
@@ -5239,7 +5203,7 @@
           "bars": false,
           "dashLength": 10,
           "dashes": false,
-          "datasource": "${DS_PROMETHEUS}",
+          "datasource": "Prometheus",
           "description": "Avg merge duration",
           "fieldConfig": {
             "defaults": {},
@@ -5340,7 +5304,7 @@
           "bars": false,
           "dashLength": 10,
           "dashes": false,
-          "datasource": "${DS_PROMETHEUS}",
+          "datasource": "Prometheus",
           "description": "Number of rows INSERTed to MergeTree tables.",
           "fieldConfig": {
             "defaults": {},
@@ -5449,7 +5413,7 @@
           "bars": false,
           "dashLength": 10,
           "dashes": false,
-          "datasource": "${DS_PROMETHEUS}",
+          "datasource": "Prometheus",
           "description": "Number of blocks INSERTed to MergeTree tables. Each block forms a data part of level zero.",
           "fieldConfig": {
             "defaults": {},
@@ -5558,7 +5522,7 @@
           "bars": false,
           "dashLength": 10,
           "dashes": false,
-          "datasource": "${DS_PROMETHEUS}",
+          "datasource": "Prometheus",
           "description": "Uncompressed bytes (for columns as they stored in memory) INSERTed to MergeTree tables.",
           "fieldConfig": {
             "defaults": {},
@@ -5667,7 +5631,7 @@
           "bars": false,
           "dashLength": 10,
           "dashes": false,
-          "datasource": "${DS_PROMETHEUS}",
+          "datasource": "Prometheus",
           "description": "Bytes written to filesystem for data INSERTed to MergeTree tables.",
           "fieldConfig": {
             "defaults": {},
@@ -5776,7 +5740,7 @@
           "bars": false,
           "dashLength": 10,
           "dashes": false,
-          "datasource": "${DS_PROMETHEUS}",
+          "datasource": "Prometheus",
           "description": "Disk space reserved for currently running background merges. It is slightly more than the total size of currently merging parts.",
           "fieldConfig": {
             "defaults": {},
@@ -5878,7 +5842,7 @@
     },
     {
       "collapsed": true,
-      "datasource": "${DS_PROMETHEUS}",
+      "datasource": "Prometheus",
       "gridPos": {
         "h": 1,
         "w": 24,
@@ -5892,7 +5856,7 @@
           "bars": false,
           "dashLength": 10,
           "dashes": false,
-          "datasource": "${DS_PROMETHEUS}",
+          "datasource": "Prometheus",
           "description": "",
           "fieldConfig": {
             "defaults": {},
@@ -6001,7 +5965,7 @@
           "bars": false,
           "dashLength": 10,
           "dashes": false,
-          "datasource": "${DS_PROMETHEUS}",
+          "datasource": "Prometheus",
           "description": "",
           "fieldConfig": {
             "defaults": {},
@@ -6110,7 +6074,7 @@
           "bars": false,
           "dashLength": 10,
           "dashes": false,
-          "datasource": "${DS_PROMETHEUS}",
+          "datasource": "Prometheus",
           "description": "",
           "fieldConfig": {
             "defaults": {},
@@ -6219,7 +6183,7 @@
           "bars": false,
           "dashLength": 10,
           "dashes": false,
-          "datasource": "${DS_PROMETHEUS}",
+          "datasource": "Prometheus",
           "description": "",
           "fieldConfig": {
             "defaults": {},
@@ -6329,7 +6293,7 @@
     },
     {
       "collapsed": true,
-      "datasource": "${DS_PROMETHEUS}",
+      "datasource": "Prometheus",
       "gridPos": {
         "h": 1,
         "w": 24,
@@ -6343,7 +6307,7 @@
           "bars": false,
           "dashLength": 10,
           "dashes": false,
-          "datasource": "${DS_PROMETHEUS}",
+          "datasource": "Prometheus",
           "description": "The part is generating now, it is not in data_parts list.",
           "fieldConfig": {
             "defaults": {},
@@ -6444,7 +6408,7 @@
           "bars": false,
           "dashLength": 10,
           "dashes": false,
-          "datasource": "${DS_PROMETHEUS}",
+          "datasource": "Prometheus",
           "description": "The part is in data_parts, but not used for SELECTs.",
           "fieldConfig": {
             "defaults": {},
@@ -6545,7 +6509,7 @@
           "bars": false,
           "dashLength": 10,
           "dashes": false,
-          "datasource": "${DS_PROMETHEUS}",
+          "datasource": "Prometheus",
           "description": "The part is in data_parts, but not used for SELECTs.",
           "fieldConfig": {
             "defaults": {},
@@ -6646,7 +6610,7 @@
           "bars": false,
           "dashLength": 10,
           "dashes": false,
-          "datasource": "${DS_PROMETHEUS}",
+          "datasource": "Prometheus",
           "description": "Not active data part, but could be used by only current SELECTs, could be deleted after SELECTs finishes.",
           "fieldConfig": {
             "defaults": {},
@@ -6747,7 +6711,7 @@
           "bars": false,
           "dashLength": 10,
           "dashes": false,
-          "datasource": "${DS_PROMETHEUS}",
+          "datasource": "Prometheus",
           "description": "Not active data part with identity refcounter, it is deleting right now by a cleaner.",
           "fieldConfig": {
             "defaults": {},
@@ -6848,7 +6812,7 @@
           "bars": false,
           "dashLength": 10,
           "dashes": false,
-          "datasource": "${DS_PROMETHEUS}",
+          "datasource": "Prometheus",
           "description": "Part was moved to another disk and should be deleted in own destructor.",
           "fieldConfig": {
             "defaults": {},
@@ -6949,7 +6913,7 @@
           "bars": false,
           "dashLength": 10,
           "dashes": false,
-          "datasource": "${DS_PROMETHEUS}",
+          "datasource": "Prometheus",
           "description": "Wide parts.",
           "fieldConfig": {
             "defaults": {},
@@ -7050,7 +7014,7 @@
           "bars": false,
           "dashLength": 10,
           "dashes": false,
-          "datasource": "${DS_PROMETHEUS}",
+          "datasource": "Prometheus",
           "description": "Compact parts.",
           "fieldConfig": {
             "defaults": {},
@@ -7151,7 +7115,7 @@
           "bars": false,
           "dashLength": 10,
           "dashes": false,
-          "datasource": "${DS_PROMETHEUS}",
+          "datasource": "Prometheus",
           "description": "In-memory parts.",
           "fieldConfig": {
             "defaults": {},
@@ -7253,7 +7217,7 @@
     },
     {
       "collapsed": true,
-      "datasource": "${DS_PROMETHEUS}",
+      "datasource": "Prometheus",
       "gridPos": {
         "h": 1,
         "w": 24,
@@ -7267,7 +7231,7 @@
           "bars": false,
           "dashLength": 10,
           "dashes": false,
-          "datasource": "${DS_PROMETHEUS}",
+          "datasource": "Prometheus",
           "description": "Number of connections to remote servers sending data that was INSERTed into Distributed tables. Both synchronous and asynchronous mode.",
           "fieldConfig": {
             "defaults": {},
@@ -7368,7 +7332,7 @@
           "bars": false,
           "dashLength": 10,
           "dashes": false,
-          "datasource": "${DS_PROMETHEUS}",
+          "datasource": "Prometheus",
           "description": "Number of pending files to process for asynchronous insertion into Distributed tables. Number of files for every shard is summed.",
           "fieldConfig": {
             "defaults": {},
@@ -7469,7 +7433,7 @@
           "bars": false,
           "dashLength": 10,
           "dashes": false,
-          "datasource": "${DS_PROMETHEUS}",
+          "datasource": "Prometheus",
           "description": "Number of times the INSERT of a block to a Distributed table was throttled due to high number of pending bytes.",
           "fieldConfig": {
             "defaults": {},
@@ -7578,7 +7542,7 @@
           "bars": false,
           "dashLength": 10,
           "dashes": false,
-          "datasource": "${DS_PROMETHEUS}",
+          "datasource": "Prometheus",
           "description": "Number of times the INSERT of a block to a Distributed table was rejected with 'Too many bytes' exception due to high number of pending bytes.",
           "fieldConfig": {
             "defaults": {},
@@ -7687,7 +7651,7 @@
           "bars": false,
           "dashLength": 10,
           "dashes": false,
-          "datasource": "${DS_PROMETHEUS}",
+          "datasource": "Prometheus",
           "description": "Total number of milliseconds spent while the INSERT of a block to a Distributed table was throttled due to high number of pending bytes.",
           "fieldConfig": {
             "defaults": {},
@@ -7788,7 +7752,7 @@
           "bars": false,
           "dashLength": 10,
           "dashes": false,
-          "datasource": "${DS_PROMETHEUS}",
+          "datasource": "Prometheus",
           "description": "Total count when distributed connection fails with retry",
           "fieldConfig": {
             "defaults": {},
@@ -7897,7 +7861,7 @@
           "bars": false,
           "dashLength": 10,
           "dashes": false,
-          "datasource": "${DS_PROMETHEUS}",
+          "datasource": "Prometheus",
           "description": "Total count when distributed connection fails after all retries finished",
           "fieldConfig": {
             "defaults": {},
@@ -8006,7 +7970,7 @@
           "bars": false,
           "dashLength": 10,
           "dashes": false,
-          "datasource": "${DS_PROMETHEUS}",
+          "datasource": "Prometheus",
           "description": "",
           "fieldConfig": {
             "defaults": {},
@@ -8116,7 +8080,7 @@
     },
     {
       "collapsed": true,
-      "datasource": "${DS_PROMETHEUS}",
+      "datasource": "Prometheus",
       "gridPos": {
         "h": 1,
         "w": 24,
@@ -8130,7 +8094,7 @@
           "bars": false,
           "dashLength": 10,
           "dashes": false,
-          "datasource": "${DS_PROMETHEUS}",
+          "datasource": "Prometheus",
           "description": "Number of active tasks in BackgroundProcessingPool (merges, mutations, or replication queue bookkeeping)",
           "fieldConfig": {
             "defaults": {},
@@ -8231,7 +8195,7 @@
           "bars": false,
           "dashLength": 10,
           "dashes": false,
-          "datasource": "${DS_PROMETHEUS}",
+          "datasource": "Prometheus",
           "description": "Number of active tasks in BackgroundFetchesPool",
           "fieldConfig": {
             "defaults": {},
@@ -8332,7 +8296,7 @@
           "bars": false,
           "dashLength": 10,
           "dashes": false,
-          "datasource": "${DS_PROMETHEUS}",
+          "datasource": "Prometheus",
           "description": "Number of active tasks in BackgroundProcessingPool for moves",
           "fieldConfig": {
             "defaults": {},
@@ -8433,7 +8397,7 @@
           "bars": false,
           "dashLength": 10,
           "dashes": false,
-          "datasource": "${DS_PROMETHEUS}",
+          "datasource": "Prometheus",
           "description": "Number of active tasks in BackgroundSchedulePool. This pool is used for periodic ReplicatedMergeTree tasks, like cleaning old data parts, altering data parts, replica re-initialization, etc.",
           "fieldConfig": {
             "defaults": {},
@@ -8534,7 +8498,7 @@
           "bars": false,
           "dashLength": 10,
           "dashes": false,
-          "datasource": "${DS_PROMETHEUS}",
+          "datasource": "Prometheus",
           "description": "Number of active tasks in BackgroundBufferFlushSchedulePool. This pool is used for periodic Buffer flushes",
           "fieldConfig": {
             "defaults": {},
@@ -8635,7 +8599,7 @@
           "bars": false,
           "dashLength": 10,
           "dashes": false,
-          "datasource": "${DS_PROMETHEUS}",
+          "datasource": "Prometheus",
           "description": "Number of active tasks in BackgroundDistributedSchedulePool. This pool is used for distributed sends that is done in background.",
           "fieldConfig": {
             "defaults": {},
@@ -8736,7 +8700,7 @@
           "bars": false,
           "dashLength": 10,
           "dashes": false,
-          "datasource": "${DS_PROMETHEUS}",
+          "datasource": "Prometheus",
           "description": "Number of active tasks in BackgroundProcessingPool for message streaming",
           "fieldConfig": {
             "defaults": {},
@@ -8838,7 +8802,7 @@
     },
     {
       "collapsed": true,
-      "datasource": "${DS_PROMETHEUS}",
+      "datasource": "Prometheus",
       "gridPos": {
         "h": 1,
         "w": 24,
@@ -8852,7 +8816,7 @@
           "bars": false,
           "dashLength": 10,
           "dashes": false,
-          "datasource": "${DS_PROMETHEUS}",
+          "datasource": "Prometheus",
           "description": "",
           "fieldConfig": {
             "defaults": {},
@@ -8961,7 +8925,7 @@
           "bars": false,
           "dashLength": 10,
           "dashes": false,
-          "datasource": "${DS_PROMETHEUS}",
+          "datasource": "Prometheus",
           "description": "",
           "fieldConfig": {
             "defaults": {},
@@ -9070,7 +9034,7 @@
           "bars": false,
           "dashLength": 10,
           "dashes": false,
-          "datasource": "${DS_PROMETHEUS}",
+          "datasource": "Prometheus",
           "description": "",
           "fieldConfig": {
             "defaults": {},
@@ -9179,7 +9143,7 @@
           "bars": false,
           "dashLength": 10,
           "dashes": false,
-          "datasource": "${DS_PROMETHEUS}",
+          "datasource": "Prometheus",
           "description": "",
           "fieldConfig": {
             "defaults": {},
@@ -9288,7 +9252,7 @@
           "bars": false,
           "dashLength": 10,
           "dashes": false,
-          "datasource": "${DS_PROMETHEUS}",
+          "datasource": "Prometheus",
           "description": "",
           "fieldConfig": {
             "defaults": {},
@@ -9397,7 +9361,7 @@
           "bars": false,
           "dashLength": 10,
           "dashes": false,
-          "datasource": "${DS_PROMETHEUS}",
+          "datasource": "Prometheus",
           "description": "",
           "fieldConfig": {
             "defaults": {},
@@ -9506,7 +9470,7 @@
           "bars": false,
           "dashLength": 10,
           "dashes": false,
-          "datasource": "${DS_PROMETHEUS}",
+          "datasource": "Prometheus",
           "description": "",
           "fieldConfig": {
             "defaults": {},
@@ -9615,7 +9579,7 @@
           "bars": false,
           "dashLength": 10,
           "dashes": false,
-          "datasource": "${DS_PROMETHEUS}",
+          "datasource": "Prometheus",
           "description": "",
           "fieldConfig": {
             "defaults": {},
@@ -9724,7 +9688,7 @@
           "bars": false,
           "dashLength": 10,
           "dashes": false,
-          "datasource": "${DS_PROMETHEUS}",
+          "datasource": "Prometheus",
           "description": "",
           "fieldConfig": {
             "defaults": {},
@@ -9833,7 +9797,7 @@
           "bars": false,
           "dashLength": 10,
           "dashes": false,
-          "datasource": "${DS_PROMETHEUS}",
+          "datasource": "Prometheus",
           "description": "",
           "fieldConfig": {
             "defaults": {},
@@ -9942,7 +9906,7 @@
           "bars": false,
           "dashLength": 10,
           "dashes": false,
-          "datasource": "${DS_PROMETHEUS}",
+          "datasource": "Prometheus",
           "description": "",
           "fieldConfig": {
             "defaults": {},
@@ -10051,7 +10015,7 @@
           "bars": false,
           "dashLength": 10,
           "dashes": false,
-          "datasource": "${DS_PROMETHEUS}",
+          "datasource": "Prometheus",
           "description": "",
           "fieldConfig": {
             "defaults": {},
@@ -10160,7 +10124,7 @@
           "bars": false,
           "dashLength": 10,
           "dashes": false,
-          "datasource": "${DS_PROMETHEUS}",
+          "datasource": "Prometheus",
           "description": "",
           "fieldConfig": {
             "defaults": {},
@@ -10269,7 +10233,7 @@
           "bars": false,
           "dashLength": 10,
           "dashes": false,
-          "datasource": "${DS_PROMETHEUS}",
+          "datasource": "Prometheus",
           "description": "",
           "fieldConfig": {
             "defaults": {},
@@ -10378,7 +10342,7 @@
           "bars": false,
           "dashLength": 10,
           "dashes": false,
-          "datasource": "${DS_PROMETHEUS}",
+          "datasource": "Prometheus",
           "description": "",
           "fieldConfig": {
             "defaults": {},
@@ -10487,7 +10451,7 @@
           "bars": false,
           "dashLength": 10,
           "dashes": false,
-          "datasource": "${DS_PROMETHEUS}",
+          "datasource": "Prometheus",
           "description": "",
           "fieldConfig": {
             "defaults": {},
@@ -10596,7 +10560,7 @@
           "bars": false,
           "dashLength": 10,
           "dashes": false,
-          "datasource": "${DS_PROMETHEUS}",
+          "datasource": "Prometheus",
           "description": "Number of sessions (connections) to ZooKeeper. Should be no more than one, because using more than one connection to ZooKeeper may lead to bugs due to lack of linearizability (stale reads) that ZooKeeper consistency model allows.",
           "fieldConfig": {
             "defaults": {},
@@ -10697,7 +10661,7 @@
           "bars": false,
           "dashLength": 10,
           "dashes": false,
-          "datasource": "${DS_PROMETHEUS}",
+          "datasource": "Prometheus",
           "description": "Number of ephemeral nodes hold in ZooKeeper.",
           "fieldConfig": {
             "defaults": {},
@@ -10798,7 +10762,7 @@
           "bars": false,
           "dashLength": 10,
           "dashes": false,
-          "datasource": "${DS_PROMETHEUS}",
+          "datasource": "Prometheus",
           "description": "Number of watches (event subscriptions) in ZooKeeper.",
           "fieldConfig": {
             "defaults": {},
@@ -10899,7 +10863,7 @@
           "bars": false,
           "dashLength": 10,
           "dashes": false,
-          "datasource": "${DS_PROMETHEUS}",
+          "datasource": "Prometheus",
           "description": "Number of requests to ZooKeeper in fly.",
           "fieldConfig": {
             "defaults": {},
@@ -11000,7 +10964,7 @@
           "bars": false,
           "dashLength": 10,
           "dashes": false,
-          "datasource": "${DS_PROMETHEUS}",
+          "datasource": "Prometheus",
           "description": "Number of times an error happened while trying to remove ephemeral node. This is not an issue, because our implementation of ZooKeeper library guarantee that the session will expire and the node will be removed.",
           "fieldConfig": {
             "defaults": {},
@@ -11142,7 +11106,7 @@
       {
         "allValue": null,
         "current": {},
-        "datasource": "${DS_PROMETHEUS}",
+        "datasource": "Prometheus",
         "definition": "label_values(ClickHouseAsyncMetrics_Uptime, instance)",
         "description": null,
         "error": null,
