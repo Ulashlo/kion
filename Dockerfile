@@ -1,4 +1,4 @@
-FROM openjdk:11
+FROM openjdk:17
 COPY build/libs/kion.jar .
 WORKDIR .
 ENTRYPOINT ["java", "-jar", "kion.jar"]
