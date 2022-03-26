@@ -9,3 +9,8 @@ scrape_configs:
     metrics_path: '/metrics'
     static_configs:
       - targets: ['kafka_exporter:9308']
+  - job_name: 'clickhouse_monitoring'
+    scrape_interval: 5s
+    metrics_path: '/metrics'
+    static_configs:
+      - targets: ['kafka_exporter:9363']

@@ -22,6 +22,6 @@ CREATE TABLE IF NOT EXISTS event
 ) Engine = MergeTree()
            order by userId;
 
-CREATE MATERIALIZED VIEW event_mv TO event AS
+CREATE MATERIALIZED VIEW IF NOT EXISTS event_mv TO event AS
 SELECT videoId, userId, type, creationDate, videoTime
 FROM event_queue;
