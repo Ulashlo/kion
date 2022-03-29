@@ -1,5 +1,5 @@
 FROM openjdk:17
-COPY build/libs/kion.jar .
+COPY kion.jar .
 WORKDIR .
 ENTRYPOINT ["java", "-jar", "kion.jar"]
 EXPOSE 8080
