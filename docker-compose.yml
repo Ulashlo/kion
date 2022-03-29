@@ -42,15 +42,6 @@ services:
   zookeeper:
     image: wurstmeister/zookeeper
     container_name: zookeeper
-#  kafka_exporter:
-#    image: bitnami/kafka-exporter
-#    container_name: kafka_exporter
-#    command: --kafka.server=kafka:9092
-#    depends_on:
-#      kafka:
-#        condition: service_started
-#      prometheus:
-#        condition: service_started
   kafka:
     image: wurstmeister/kafka
     container_name: kafka
